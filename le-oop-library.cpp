@@ -11,7 +11,14 @@ public:
     Library() {
         loadBooks();
     }
-
+    
+    string toUpperCase(const string& str) {
+        string result = str;
+        for (char& c : result) {
+            c = toupper(c);
+        }
+        return result;
+    }
     // function to add a book to the library
     void addBook(string title, string author, int year) {
         books.push_back({title, author, year});
@@ -37,10 +44,12 @@ public:
     }
 
     //function to search book by title
-    void searchBook(string title) {
+   void searchBook(string title) {
         bool found = false;
+        string searchTitle = toUpperCase(title); // Convert input title to uppercase
+
         for (Book book : books) {
-            if (book.title == title) {
+            if (toUpperCase(book.title) == searchTitle) { // Convert book title to uppercase before comparing
                 system("cls");
                 cout << "Book found!" << endl;
                 cout << "Title: " << book.title << endl;
