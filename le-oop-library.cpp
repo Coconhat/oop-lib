@@ -16,11 +16,14 @@ public:
     void addBook(string title, string author, int year) {
         books.push_back({title, author, year});
         saveBooks(); // save data after addBook()
+        system("cls");
         cout << "Book added successfully!" << endl;
     }
+    
 
     //function to display books
     void displayBooks() {
+        system("cls");
         cout << "Book List:" << endl;
         cout << setw(30) << left << "Title"
              << setw(20) << left << "Author"
@@ -38,6 +41,7 @@ public:
         bool found = false;
         for (Book book : books) {
             if (book.title == title) {
+                system("cls");
                 cout << "Book found!" << endl;
                 cout << "Title: " << book.title << endl;
                 cout << "Author: " << book.author << endl;
